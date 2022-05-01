@@ -1,0 +1,223 @@
+<div class="container">
+    <div class="heading mt-3">
+        <h4 >Make Payment</h4>
+    </div>
+
+
+<div class="row">
+    <div class="col-lg-8 box-1">
+<section class="form-part">
+    <p class="sub-heading">Select Payment Mode</p>
+    <form #paymentForm="ngForm" (ngSubmit)="saveData()">
+        <div class="form-check form-check-inline ml-4 radio credit">
+            <input class="form-check-input  " [(ngModel)]="paymentFormData.paymentMode" name="paymentMode" type="radio" name="flexRadioDefault" id="inlineRadio1 " value="credit_debit_card">
+            <label class="form-check-label " for="inlineRadio1 ">Credit/Debit Card</label>
+          </div>
+          <div class="form-check form-check-inline ml-3 radio credit">
+            <input class="form-check-input" [(ngModel)]="paymentFormData.paymentMode" type="radio" name="paymentMode" id="inlineRadio2" name="flexRadioDefault" value="ach">
+            <label class="form-check-label" for="inlineRadio2">ACH</label>
+          </div>
+          <div class="form-check form-check-inline ml-3 radio credit">
+            <input class="form-check-input" [(ngModel)]="paymentFormData.paymentMode" type="radio" name="paymentMode" id="inlineRadio3" value="cheque">
+            <label class="form-check-label" name="flexRadioDefault" for="inlineRadio3">Cheque</label>
+          </div>
+          <br>
+
+          <label for="tpa">Total Payable Amount $</label>
+          <input  class="text " type="text" placeholder="0" id="tpa" autocomplete="off" [(ngModel)]="paymentFormData.totalAmount" name="paymentFormData.totalAmount">
+          <br><br>
+          <div class="row mb-4">
+            <div class="col-lg-4">
+                <label for="c_num" class="mb-2 ">Card Number</label><br>
+              <input type="text" class=" text"  aria-label="First name" id="c_num"  [(ngModel)]="paymentFormData.cardNumber" name="paymentFormData.cardNumber">
+            </div>
+            <div class="col-lg-4">
+                <label for="name_card" class="mb-2">Name on Card</label><br>
+              <input type="text" class=" text"  aria-label="Last name" id="name_card"  [(ngModel)]="paymentFormData.nameOnCard" name="paymentFormData.nameOnCard">
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-lg-4 mb-2">
+                <label for="ex_Month" class="form-label">Expiry Month</label><br>
+                <select class="text" id="ex_Month"  [(ngModel)]="paymentFormData.expiryMonth" name="paymentFormData.expiryMonth" required>
+                  <option selected disabled value="">Select</option>
+                  <option>January</option>
+                  <option>February</option>
+                  <option>March</option>
+                  <option>April</option>
+                  <option>May</option>
+                  <option>June</option>
+                  <option>July</option>
+                  <option>August</option>
+                  <option>September</option>
+                  <option>October</option>
+                  <option>November</option>
+                  <option>December</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid Month.
+                </div>
+            </div>
+            <div class="col-lg-4 mb-2">
+                <label for="ex-Year" class="form-label">Expiry Year</label><br>
+                <select class="text" id="ex_Year"  [(ngModel)]="paymentFormData.expiryYear" name="paymentFormData.expiryYear" required>
+                  <option selected disabled value="">Select</option>
+                  <option>2022</option>
+                  <option>2023</option>
+                  <option>2024</option>
+                  <option>2025</option>
+                  <option>2026</option>
+                  <option>2027</option>
+                  <option>2028</option>
+                  <option>2029</option>
+                  <option>2030</option>
+                  <option>2031</option>
+                  <option>2032</option>
+                  <option>2033</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid Year.
+                </div>
+             
+            </div>
+            <div class="col-lg-4 mb-2">
+                <label for="cvv" class="mb-1">CVV</label><br>
+              <input type="text" class="text"  aria-label="Last name" id="cvv" [(ngModel)]="paymentFormData.cvv" name="paymentFormData.cvv">
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-lg-4 mb-2">
+              <input type="text" class=" text mb-3"  aria-label="First name" placeholder="Personal Information" id="personal_Info" [(ngModel)]="paymentFormData.personalInfo" name="paymentFormData.personalInfo">
+            </div>
+            <div class="col-lg-4 mb-2">
+               <input type="text" class="text mb-3"  aria-label="Last name" placeholder="Billing Information" id="billing_Info" [(ngModel)]="paymentFormData.billingInfo" name="paymentFormData.billingInfo">
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-lg-4">
+                <label for="f_name" class="mb-2">First Name</label><br>
+              <input type="text" class="text mb-2"  aria-label="First name"  id="f_name" [(ngModel)]="paymentFormData.firstName" name="paymentFormData.firstName">
+            </div>
+            <div class="col-lg-4">
+                <label for="m_name" class="mb-2 me-2">Middle Name</label><br>
+               <input type="text" class="text mb-2"  aria-label="Last name"  id="m_name" [(ngModel)]="paymentFormData.middleName" name="paymentFormData.middleName">
+            </div>
+            <div class="col-lg-4">
+                <label for="l_name" class="mb-2">Last Name</label><br>
+                <input type="text" class="text mb-2"  aria-label="Last Business Name"  id="l_name" [(ngModel)]="paymentFormData.lastName" name="paymentFormData.lastName">
+             </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-lg-4">
+                <label for="add_1" class="mb-2 ">Address 1</label><br>
+              <input type="text" class="text mb-3"  aria-label="First name" id="add_1" [(ngModel)]="paymentFormData.address1" name="paymentFormData.address1">
+            </div>
+            <div class="col-lg-4">
+                <label for="add_2" class="mb-2">Address 2</label><br>
+              <input type="text" class=" text"  aria-label="Last name" id="add_2" [(ngModel)]="paymentFormData.address2" name="paymentFormData.address2">
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-lg-4 mb-2">
+                <label for="city" class="mb-2 ">City</label><br>
+              <input type="text" class="text mb-2"  aria-label="First name" id="city" [(ngModel)]="paymentFormData.city" name="paymentFormData.city">
+            </div>
+            <div class="col-lg-4 mb-2">
+                <label for="state" class="mb-2">State</label> <br>
+              <input type="text" class=" text mb-2"  aria-label="Last name" id="state" [(ngModel)]="paymentFormData.state" name="paymentFormData.state">
+            </div>
+
+            <div class="col-lg-4 mb-2">
+                <label for="zip" class="mb-2">Zip Code</label><br>
+              <input type="text" class=" text mb-2"  aria-label="Last name" id="zip" [(ngModel)]="paymentFormData.zipCode" name="paymentFormData.zipCode">
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-lg-4">
+                <label for="phone" class="mb-2 ">Phone Number</label><br>
+              <input type="text" class=" text mb-2"  aria-label="First name" id="phone" [(ngModel)]="paymentFormData.phoneNumber" name="paymentFormData.phoneNumber">
+            </div>
+            <div class="col-lg-4">
+                <label for="email" class="mb-2">Email</label><br>
+              <input type="email" class=" text mb-2"  aria-label="Last name" id="email" [(ngModel)]="paymentFormData.email" name="paymentFormData.email">
+            </div>
+            </div>
+
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="checkbox" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  <strong> Billing Information about this payment is same as above </strong>
+                </label>
+              </div>
+
+            <button class="btn btn-primary mb-3 pay" type="submit">
+                Secure Payment <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+    </form>
+</section>
+</div>
+
+<div class="col-lg-4">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <button class="btn btn-primary">
+         <span>Click Here for</span><h2>Billing Enquiries</h2>
+        </button>
+        <button class="btn btn-light"><p>Do not hesitate to <span class="text-primary">Request a Call Back</span> if you have any questions </p></button>
+        </div>
+
+    <img src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1429896573/fjwrzwq6mimnkadm1opf.png" alt="">
+</div>
+</div>
+<div class="row foot-img">
+   <div class="col-lg-6 mt-5">
+    <div class="card" style="width: 30rem;">
+        <div class="card-body">
+          <h5 class="card-title">Mobile Apps are</h5>
+          <div class="d-flex">
+           <div class="d-flex mobile-app me-5">
+          <div class="title">
+              <span class="text-primary">Available on</span><h6 class="text-primary">Apple Store</h6>
+          </div>
+          <div class="title-img">
+              <a href=""><i class="fa-brands fa-apple"></i></a>
+          </div>
+        </div>
+        <div class="d-flex mobile-app">
+            <div class="title">
+                <span class="text-primary">Available on</span><h6 class="text-primary">Google Play</h6>
+            </div>
+            <div class="title-img">
+                <a href=""><i class="fa-brands fa-google-play"></i></a>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div> 
+   </div>
+   <div  class="col-lg-6 mt-5">
+       <img  class="w-100"src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/sol-88504-apple-family-pm-20fa2aed-5dbd-4e28-96da-4689f1bc75a8.png" alt=" images">
+   </div>
+</div>
+<div class="container-fluid">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+        </a>
+        <span class="text-muted">&copy; 2021 Company, Inc</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+      </ul>
+    </footer>
+  </div>
+</div>

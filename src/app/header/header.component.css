@@ -1,0 +1,29 @@
+.fa-solid{
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    padding-top: 9px;
+    padding-bottom: 7px;
+    padding-left:10px;
+    padding-right: 20px;
+    position: absolute;
+    right: 34px; 
+    margin-top: 1px;
+    /* z-index: 0; */
+    
+    
+}
+.num{
+    border-top-right-radius: 27px;
+    border-bottom-right-radius: 27px;
+    border-top-left-radius: 27px;
+    border-bottom-left-radius: 27px;
+    margin-left: 0;
+    padding: 5px;
+    padding-right: 6px;
+    /* position: relative; */
+    z-index: 0;
+    
+     
+}
